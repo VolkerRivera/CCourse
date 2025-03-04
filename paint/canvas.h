@@ -16,6 +16,7 @@ public:
     void remove(int id);
     void move(int id, Point new_p1, Point new_p2);
     void list();
+    void export_to_file();
 };
 
 #endif // CANVAS_H

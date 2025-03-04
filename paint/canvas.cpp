@@ -1,4 +1,8 @@
 #include "canvas.h"
+#include "GestorFichero.h"
+#include "util.h"
+#include <fstream>
+#include <iostream>
 
 void Canvas::add(std::unique_ptr<Shape> shape)
 {
@@ -36,4 +40,17 @@ void Canvas::list()
     {
         std::cout << shape->toString() << std::endl;
     }
+}
+
+void Canvas::export_to_file(){
+    std::cout << "im here" << std::endl; 
+    GestorFichero fichero = GestorFichero("OutputFile.json");
+    std::string lines;
+    for(const auto&shape : shapes)
+    {
+        lines = lines + shape->serialize().dump(4) + ",";
+        std::cout << lines << std::endl;
+    }
+    fichero.escribir(lines, false);
+
 }

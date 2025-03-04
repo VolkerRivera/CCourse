@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "json.hpp"
 
 class Point
 {
@@ -19,6 +20,10 @@ public:
     std::string toString() const;
 
     friend std::istream& operator>>(std::istream& is, Point& p);
+
+    nlohmann::json serialize() const;
+
+    static Point deserialize(const nlohmann::json& j);
 };
 
 #endif // POINT_H

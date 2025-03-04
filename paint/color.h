@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "json.hpp"
 
 class Color
 {
@@ -23,6 +24,10 @@ public:
     std::string toString() const;
 
     friend std::istream& operator>>(std::istream& is, Color& c);
+
+    nlohmann::json serialize() const;
+ 
+    static Color deserialize(const nlohmann::json& j);
 };
 
 #endif // COLOR_H

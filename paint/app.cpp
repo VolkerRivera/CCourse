@@ -61,10 +61,25 @@ void App::run()
             break;
         }
         case 5:
+        {
+            do
+            {
+                clear();
+                std::cout << "Exportando shapes en formato json..." << std::endl;
+                CommandExport export_shapes(canvas);
+                export_shapes.run();
+                std::cout << "Proceso de escritura finalizado..." << std::endl;
+                std::cout << "\nVolver al menu principal? (y/otra tecla): ";
+                std::cin >> cmd;
+            }
+            while(cmd != "y");
+            
+        }
+        case 6:
             std::cout << "Saliendo del programa..." << std::endl;
             break;
         default:
             std::cout << "Opción no válida. Intente de nuevo." << std::endl;
         }
-    } while (opcion != 5);
+    } while (opcion != 6);
 }

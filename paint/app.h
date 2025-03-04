@@ -6,6 +6,7 @@
 #include "canvas.h"
 #include "util.h"
 #include "commands.h"
+#include "GestorFichero.h"
 
 class App
 {

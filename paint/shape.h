@@ -6,6 +6,7 @@
 #include <functional>
 #include "point.h"
 #include "color.h"
+#include "json.hpp"
 
 // Clase base Shape
 class Shape
@@ -27,6 +28,9 @@ public:
     Point getEnd() const;
     Color getColor() const;
     int getId() const;
+    
+    nlohmann::json serialize() const;
+    static std::unique_ptr<Shape> deserialize(const nlohmann::json& j);
 
     virtual std::string toString() const;
 };

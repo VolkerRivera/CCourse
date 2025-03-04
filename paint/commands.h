@@ -13,6 +13,7 @@ class CommandCreate
 private:
     Canvas &receiver;
     std::unique_ptr<Shape> shape;
+
 public:
     CommandCreate(Canvas &canvas, std::unique_ptr<Shape> shape);
     void run();
@@ -23,6 +24,7 @@ class CommandList
 {
 private:
     Canvas &receiver;
+
 public:
     CommandList(Canvas &canvas);
     void run();
@@ -34,6 +36,7 @@ class CommandRemove
 private:
     Canvas &receiver;
     int id;
+
 public:
     CommandRemove(Canvas &canvas, int id);
     void run();
@@ -45,8 +48,19 @@ class CommandMove
 private:
     Canvas &receiver;
     int id;
+
 public:
     CommandMove(Canvas &canvas, int id);
+    void run();
+};
+
+class CommandExport
+{
+private:
+    Canvas &receiver;
+
+public:
+    CommandExport(Canvas &canvas);
     void run();
 };
 

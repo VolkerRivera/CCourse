@@ -24,7 +24,8 @@ void showMenu()
     std::cout << "2. Lista todos los shapes" << std::endl;
     std::cout << "3. Elimina el shape por id" << std::endl;
     std::cout << "4. Mueve el shape a un punto en concreto" << std::endl;
-    std::cout << "5. Exit" << std::endl;
+    std::cout << "5. Exportar shapes a fichero" << std::endl;
+    std::cout << "6. Exit" << std::endl;
     std::cout << "Seleccione una opcion: ";
 }
 

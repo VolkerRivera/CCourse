@@ -45,11 +45,22 @@ void CommandMove::run()
     std::cout << "Introduzca el nuevo punto de inicio:" << std::endl;
     std::cin >> new_start;
     std::cout << "Nuevo inicio: " << new_start.toString() << std::endl;
-    
+
     Point new_end;
     std::cout << "Introduzca el nuevo punto final:" << std::endl;
     std::cin >> new_end;
     std::cout << "Nuevo final: " << new_end.toString() << std::endl;
-    
+
     receiver.move(id, new_start, new_end);
+}
+
+// CommandExport
+CommandExport::CommandExport(Canvas &canvas)
+    : receiver(canvas)
+{
+}
+
+void CommandExport::run()
+{
+    receiver.export_to_file();
 }

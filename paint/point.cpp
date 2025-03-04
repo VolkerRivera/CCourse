@@ -11,3 +11,17 @@ std::istream& operator>>(std::istream& is, Point& p)
     is >> p.x >> p.y;
     return is;
 }
+
+nlohmann::json Point::serialize() const{
+    return nlohmann::json{
+        {"x", x},
+        {"y", y}
+    };
+}
+
+Point Point::deserialize(const nlohmann::json& j){
+    return Point(
+        j.at("x").get<int>(),
+        j.at("y").get<int>()
+    );
+}
